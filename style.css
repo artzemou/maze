@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: black;
+}
+
+#game-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+}
+
+.wall {
+  background-color: blue;
+  border: 1px solid #000;
+}
+
+#pacman {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.1s, left 0.1s;
+}
+
+#level {
+  color: white;
+  font-size: 2rem;
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal;
+  margin: 10px;
+}
+
+#level::first-letter {
+  text-transform: capitalize;
+}
+
+#pacman {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#pacman span {
+  width: 2.3px;
+  height: 2.3px;
+  background: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 4.3px;
+  left: 10px;
+}
+
+#pacman:after,
+#pacman:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  height: 0px;
+  width: 0px;
+  border: 10px solid #FFCC00;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  animation: chunk-top 1s ease infinite;
+}
+
+#pacman:after {
+  border: 10px solid #FFCC00;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: chunk-bottom 1s ease infinite;
+}
+
+@keyframes chunk-top {
+
+  0%,
+  100% {
+    transform: rotate(-45deg);
+  }
+
+  50% {
+    transform: rotate(-80deg);
+  }
+}
+
+@keyframes chunk-bottom {
+
+  0%,
+  100% {
+    transform: rotate(-40deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+}
